@@ -15,6 +15,7 @@ from random import randint
 
 pygame.init()
 WIDTH,HEIGHT = 1920, 1080
+FRAME = 0
 display = (WIDTH, HEIGHT) 
 scree = pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
 
@@ -237,13 +238,15 @@ while run:
               for z in range(0, 1):
                   if lines[y][x] !=' ' and lines[y][x] !='_':
                      #draw_ball(x, z, y, math.cos(x), math.sin(y), math.sin(z), mouseMove, viewMatrix) 
-                     draw_ball(x/2, -z * 2, -y, math.sin(x), math.cos(y), 2, mouseMove, viewMatrix,0.3) 
+                     draw_ball(x/2, -z * 2, -y, math.tan(x), cycle(function=math.cos), -cycle(), mouseMove, viewMatrix,0.3) 
         glEnable(GL_CULL_FACE)
         glMatrixMode(GL_MODELVIEW)
 
         glPopMatrix()
 
         pygame.display.flip()
+        pygame.image.save(scree,"screenshots/screenshot{}.bmp".format(FRAME))
+        FRAME += 1
         pygame.time.wait(10)
 
 pygame.quit()
