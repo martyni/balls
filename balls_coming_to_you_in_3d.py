@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+import pyautogui
 
 from OpenGL.GL import *
 from OpenGL.GLU import *
@@ -243,10 +244,11 @@ while run:
         glMatrixMode(GL_MODELVIEW)
 
         glPopMatrix()
-
+        #NEW
         pygame.display.flip()
-        pygame.image.save(scree,"screenshots/screenshot{}.bmp".format(FRAME))
+
+        pyautogui.screenshot().save('screenshots/s{}.png'.format(FRAME))
         FRAME += 1
-        pygame.time.wait(10)
+        #pygame.time.wait(10)
 
 pygame.quit()
