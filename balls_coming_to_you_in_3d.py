@@ -52,6 +52,9 @@ run = True
 
 
 def event_handling(run):
+    '''
+    Function to handle all keyboard and mouse events
+    '''
     paused = False
     run = True
     mouseMove = [0, 0]
@@ -76,12 +79,19 @@ X,Y,Z = [0,0,0]
 SPEED = 1
 
 def cycle(speed=500, offset=0, function=math.sin):
+    '''
+    Function to generate random number over time between 0 and 1
+    '''
     source = pygame.time.get_ticks()/speed
     return function(source + offset)
 
 
 
 def draw_crosshair_in_2d():
+    '''
+    Function to draw a cross hair
+    NOT WORKING
+    '''
     glPushMatrix()
     '''
     glViewport(0, 0, WIDTH, HEIGHT)'''
@@ -104,6 +114,10 @@ def draw_crosshair_in_2d():
 
 
 def draw_crosshair_3d():
+    '''
+    Function to draw a cross hair in 3d
+    NOT WORKING
+    '''
     crosshair = np.array([
       -0.02, 0,
        0.02, 0,
@@ -128,6 +142,10 @@ def draw_crosshair_3d():
     glDrawArrays(GL_LINES, 0, 4)
 
 def draw_rect(x, y, width, height):
+    '''
+    Function to draw a rectangle
+    NOT WORKING
+    '''
     glBegin(GL_QUADS)                                  # start drawing a rectangle
     glVertex2f(x, y)                                   # bottom left point
     glVertex2f(x + width, y)                           # bottom right point
@@ -139,6 +157,9 @@ def draw_rect(x, y, width, height):
     glColor3f(0.0, 0.0, 1.0)                           # set color to blue
 
 def draw_floor():
+    '''
+    Function to draw a floor
+    '''
     glPushMatrix()
     glColor4f(0.5, 0.5, 0.5, 1)
     glBegin(GL_QUADS)
@@ -149,12 +170,20 @@ def draw_floor():
     glEnd()
 
 def draw_fake_floor():
+    '''
+    Function that I wrote because I don't know how the draw floor function
+    works and when I got rid of it broke
+    '''
     glPushMatrix()
     glColor4f(0.5, 0.5, 0.5, 1)
     glBegin(GL_QUADS)
     glEnd()
 
 def draw_ball(x, y, z, r, g, b, mouseMove, viewMatrix, size=1.0, k=32, l=16):
+    '''
+    Function to Draw a ball given the above details
+    K and L I think are to do with how complicated the ball is
+    '''
     glTranslatef(x, y, z)
     glColor4f(r, g, b, 1)
     gluSphere(sphere, size, k, l) 
