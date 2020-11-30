@@ -1,7 +1,8 @@
 from PIL import Image
+import os
 FILENAME = 'output.gif'
-
-SCREENSHOTS = [ 'screenshots/s{}.png'.format(_) for _ in range(20)]
+MOVIE_LENGTH = len([i for i in os.walk('screenshots')][0][2])
+SCREENSHOTS = [ 'screenshots/s{}.png'.format(_) for _ in range(MOVIE_LENGTH)]
 
 print('Loading images')
 IMAGES = [ Image.open(scrnsht) for scrnsht in SCREENSHOTS ]
@@ -11,5 +12,5 @@ print('Saving images')
 IMAGES[0].save(FILENAME, format='GIF',
                append_images=IMAGES[1:],
                save_all=True,
-               duration=50, loop=0)
+               duration=100, loop=0)
 print('Done, please check ' + FILENAME)
