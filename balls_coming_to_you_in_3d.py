@@ -226,15 +226,15 @@ while run:
         if keypress[pygame.K_UP]:
             #glTranslatef(0,-SPEED,0)
             #Y -= SPEED
-            glRotatef(-SPEED*10, 0.0, 0.0, 1.0)
+            glRotatef(-SPEED, 1.0, 0.0, 0.0)
         if keypress[pygame.K_DOWN]:
             #glTranslatef(0,SPEED,0)
             #Y += SPEED
-            glRotatef(SPEED*10, 0.0, 0.0, 1.0)
+            glRotatef(SPEED, 1.0, 0.0, 0.0)
         if keypress[pygame.K_RIGHT]:
-            glRotatef(SPEED*10, 0.0, 1.0, 0.0)
+            glRotatef(SPEED, 0.0, 1.0, 0.0)
         if keypress[pygame.K_LEFT]:
-            glRotatef(-SPEED*10, 0.0, 1.0, 0.0)
+            glRotatef(-SPEED, 0.0, 1.0, 0.0)
         # apply the left and right rotation
         glRotatef(mouseMove[0]*SPEED, 0.0, 1.0, 0.0)
 
@@ -268,7 +268,7 @@ while run:
               for z in range(0, 1):
                   if lines[y][x] !=' ' and lines[y][x] !='_':
                      #draw_ball(x, z, y, math.cos(x), math.sin(y), math.sin(z), mouseMove, viewMatrix) 
-                     draw_ball(x/2, -z * 2, -y, math.tan(x), cycle(function=math.cos), -cycle(), mouseMove, viewMatrix,0.3,4,2) 
+                     draw_ball(x/2, -z * 2, -y, math.tan(x), cycle(function=math.cos), -cycle(), mouseMove, viewMatrix,0.4 ,10,10) 
         glEnable(GL_CULL_FACE)
         glMatrixMode(GL_MODELVIEW)
 
@@ -276,7 +276,7 @@ while run:
         #NEW
         pygame.display.flip()
 
-        pyautogui.screenshot().save('screenshots/s{}.png'.format(FRAME))
+        #pyautogui.screenshot().save('screenshots/s{}.png'.format(FRAME))
         FRAME += 1
         #pygame.time.wait(10)
 
