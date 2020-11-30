@@ -239,7 +239,7 @@ while run:
               for z in range(0, 1):
                   if lines[y][x] !=' ' and lines[y][x] !='_':
                      #draw_ball(x, z, y, math.cos(x), math.sin(y), math.sin(z), mouseMove, viewMatrix) 
-                     draw_ball(x/2, -z * 2, -y, math.tan(x), cycle(function=math.cos), -cycle(), mouseMove, viewMatrix,0.3) 
+                     draw_ball(x/2, -z * 2, -y, math.tan(x), cycle(function=math.cos), -cycle(), mouseMove, viewMatrix,0.3,4,2) 
         glEnable(GL_CULL_FACE)
         glMatrixMode(GL_MODELVIEW)
 
